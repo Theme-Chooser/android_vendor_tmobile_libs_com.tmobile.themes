@@ -215,6 +215,9 @@ public class Themes {
 
         public static final String IS_SYSTEM = "system";
 
+        public static final String THEME_HAS_MODDED_BATTERY = "theme_has_modded_battery";
+        public static final String THEME_HAS_MODDED_SIGNAL = "theme_has_modded_signal";
+        
         /**
          * Flag indicating whether this theme has been compiled with assets for
          * the current host system's display density.
