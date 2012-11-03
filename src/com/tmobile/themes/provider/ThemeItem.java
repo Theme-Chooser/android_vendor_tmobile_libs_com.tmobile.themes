@@ -61,7 +61,9 @@ public class ThemeItem extends AbstractDAOItem {
     private int mColumnPreviewUri;
     private int mColumnHasHostDensity;
     private int mColumnHasThemePackageScope;
-
+    private int mColumnThemeHasModdedBattery;
+    private int mColumnThemeHasModdedSignal;
+    
     private static final AbstractDAOItem.Creator<ThemeItem> CREATOR =
             new AbstractDAOItem.Creator<ThemeItem>() {
         @Override
@@ -109,6 +111,8 @@ public class ThemeItem extends AbstractDAOItem {
         mColumnPreviewUri = c.getColumnIndex(ThemeColumns.PREVIEW_URI);
         mColumnHasHostDensity = c.getColumnIndex(ThemeColumns.HAS_HOST_DENSITY);
         mColumnHasThemePackageScope = c.getColumnIndex(ThemeColumns.HAS_THEME_PACKAGE_SCOPE);
+        mColumnThemeHasModdedBattery = c.getColumnIndex(ThemeColumns.THEME_HAS_MODDED_BATTERY);
+        mColumnThemeHasModdedSignal = c.getColumnIndex(ThemeColumns.THEME_HAS_MODDED_SIGNAL);
     }
 
     /**
@@ -294,6 +298,14 @@ public class ThemeItem extends AbstractDAOItem {
         return mCursor.getInt(mColumnHasThemePackageScope) != 0;
     }
 
+    public String isThemeBatteryModded() {
+    	return mCursor.getString(mColumnThemeHasModdedBattery);
+    }
+    
+    public String isThemeSignalModded() {
+    	return mCursor.getString(mColumnThemeHasModdedSignal);
+    }
+    
     /**
      * Compares the internal T-Mobile theme object to this ThemeItem.
      * For internal use.
